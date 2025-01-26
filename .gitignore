@@ -1,0 +1,5 @@
+# Ignore Visual Studio user-specific files
+*.user
+*.vspscc
+*.vcxproj.user
+*.suo
