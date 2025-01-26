@@ -6,15 +6,15 @@ Object는 모든 객체에 필요한 공통 기능 제공, 모든 객체를 담�
 - equals() :객체 같은지 비교
 - getClass() :객체 클래스 정보 제공
 
-```public static void main(String[] args) {
+        public static void main(String[] args) {
         Car car=new Car();
         Dog dog=new Dog();
 
         Object obj=car;
         action(car);
         action(dog);
-    }
-public static void action(Object o){
+            }
+        public static void action(Object o){
         // o.sound(); 컴파일 오류 오브젝트는 사운드가 업음
 
         // 객체에 맞는 다운캐스팅 필요
@@ -23,13 +23,13 @@ public static void action(Object o){
         } else if(o instanceof Car car){
             car.move();
         }
-    }
+            }
 
 
 - 오브젝트 배열
-private static void size(Object[] objects) {
+        private static void size(Object[] objects) {
         System.out.println("전달된 객체의 수는: "+objects.length);
-    }
+            }
 세상의 모든 객체를 담을 수 있으므로 변경 필요 없음 모든 객체를 참조할 수 있는 능력
 
 - toString
@@ -42,7 +42,7 @@ println을 사용하면 toString 사용 필요없이 바로 객체정보 출력 
 Object가 기본으로 제공하는 이퀄즈는 ==비교 제공함=>오버라이딩해야함
 왜냐? 클래스마다 동등성이라는 개념이 다름 회원번호? 주민번호기준?
 
-UserV2 user1 = new UserV2("id-100");
+        UserV2 user1 = new UserV2("id-100");
         UserV2 user2 = new UserV2("id-100");
 
         System.out.println("identity:"+(user1==user2));
