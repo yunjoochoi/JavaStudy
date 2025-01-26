@@ -6,7 +6,7 @@ Object는 모든 객체에 필요한 공통 기능 제공, 모든 객체를 담�
 - equals() :객체 같은지 비교
 - getClass() :객체 클래스 정보 제공
 
-public static void main(String[] args) {
+```public static void main(String[] args) {
         Car car=new Car();
         Dog dog=new Dog();
 
@@ -24,6 +24,7 @@ public static void action(Object o){
             car.move();
         }
     }
+
 
 - 오브젝트 배열
 private static void size(Object[] objects) {
