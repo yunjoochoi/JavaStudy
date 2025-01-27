@@ -103,11 +103,12 @@ public static void main(String[] args) {
 ```
 
 > 결과
+```
 Address{value='서울'}
 Address{value='서울'}
 Address{value='부산'}
 Address{value='부산'}
-
+```
 의도치 않은 변경 시행됨
 
 
