@@ -89,7 +89,8 @@ Object가 기본으로 제공하는 이퀄즈는 ==비교 제공함=>오버라�
 사이드이펙트: 어떤 계산 외에 추가적인 부수 효과를 일으킴
 
 > 코드
-```public static void main(String[] args) {
+```
+public static void main(String[] args) {
         Address address=new Address("서울");
         Address b=address;
         System.out.println(address);
@@ -98,7 +99,9 @@ Object가 기본으로 제공하는 이퀄즈는 ==비교 제공함=>오버라�
         b.setValue("부산");
         System.out.println(address);
         System.out.println(b);
-    }
+        }
+```
+
 > 결과
 Address{value='서울'}
 Address{value='서울'}
