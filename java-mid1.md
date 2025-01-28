@@ -321,7 +321,7 @@ StringBuilder는 메서드 체이닝 기법을 사용한다.
 
 -  <문제: 해당 단어가 문장에 몇번 등장하는가>
 ```
-String str2="hello java hello world hello peaple";
+        String str2="hello java hello world hello peaple";
         String key="hello";
         int cnt=0;
         int idx=str2.indexOf(key);
@@ -329,9 +329,83 @@ String str2="hello java hello world hello peaple";
             cnt+=1;
             idx=str2.indexOf(key,idx+1);
         }
-        System.out.println("cnt: "+cnt);
+      System.out.println("cnt: "+cnt);
+```
+### 래퍼 클래스 - 기본형의 한계1
+1) 객체가 아님
+2) 널값 못가짐
+
+=>래퍼 클래스:: int를 클래스로 만들어보자 (내부 메서드 사용 용이 위함)
+
+int는 클래스 아니지만 int값가지는 클래스를 만들면된다. int 감싸는 클래스라서 래퍼클래스.
+
+
+
+### 래퍼 클래스 - 기본형의 한계2
+
+
+기본형은 항상 값을 가져야함 하지만 떄로는 없음(널)이라는 값이 필요할 수 있다.
+
+배열에 타깃값 찾는 문제 :없음(-1) 표현과 -1을 찾았다는 의미를 구분 불가
+
+기본형을 래퍼 클래스로 변경하는 것을 박싱이라고 한다.
+
+### 래퍼 클래스: 오토박싱
+
+기본-래퍼 변환이 귀찮다=>오토박싱, 언박싱 출현
+
+컴파일러가 개발자 대신 valueOf, xxxValue를 추가해준다.
+```
+        Integer boxedValue=Integer.valueOf(value);
+        Integer boxedValue=value; // 오토박싱
+
+        int unboxedValue=boxedValue.intValue();
+        int unboxedValue=boxedValue; //오토언박싱
+```
+
+기본형 연산이 래퍼객체 연산보다 빠르지만 유지보수 관점에서 래퍼객체 사용시 코드가 더 깔끔하기에 이를 더 많이 사용한다.
+
+최신 컴퓨터들은 성능 너무 좋아져서 사소한 최적화가 의미 없다.
+
+다른 최적화: 네트워크 호출 줄이기
+
+### 문자열과 타입 안전성1
+
+오타, 대소문자, 존재하지않는 등급 등 스트링 입력은 타입 안전성 부족하다.
+
+>값의 제한 부족, 컴파일 시 오류 감지 불가
+
+
+### 타입 안전 열거형 패턴
+
+상수형 클래스를 새로 만들어서 주소값과의 비교(상수같이 작동)를 통해 제한된 작동을 하는 메서드를 만든다.
+
+ClassGrade 타입에 값을 전달할 때는 우리가 앞서 열거한 BASIC , GOLD , DIAMOND 상수 만 사용할 수 있다.
+
+- 장점
+1) 타입 안정성 향상: 정해진 객체만 사용할 수 있기 때문에, 잘못된 값을 입력하는 문제를 근본적으로 방지할 수 있다.
+2) 데이터 일관성: 정해진 객체만 사용하므로 데이터의 일관성이 보장된다.
 
 ```
+public class ClassGrade {
+public static final ClassGrade BASIC = new ClassGrade(); 
+public static final ClassGrade GOLD = new ClassGrade(); 
+public static final ClassGrade DIAMOND = new ClassGrade();
+
+//private 생성자 추가 
+private ClassGrade() {}
+}
+```
+=>이렇게 많은 코드 필요 그래서 자바에서는 열거형을 제공
+
+public enum Grade {
+    BASIC, GOLD, DIAMOND
+}
+
+### 모든 열거형은 Enum을 상속 받음, 따라서 Enum의 메서드 사용이 가능
+        
+
+
 
 
 
