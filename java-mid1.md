@@ -402,8 +402,10 @@ public enum Grade {
     BASIC, GOLD, DIAMOND
 }
 
-### 모든 열거형은 Enum을 상속 받음, 따라서 Enum의 메서드 사용이 가능
-        
+** 모든 열거형은 Enum을 상속 받음, 따라서 Enum의 메서드 사용이 가능**
+
+
+
 
 
 
