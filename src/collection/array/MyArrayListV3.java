@@ -45,7 +45,7 @@ public class MyArrayListV3 {
         }
     }
     private void shiftRightFrom(int index){
-        for (int i = size-1; i > index; i--) {
+        for (int i = size; i > index; i--) {
             elementData[i]=elementData[i-1];
         }
     }
