@@ -1,31 +1,34 @@
-package collection.array;
+package collection.list;
 
 import java.util.Arrays;
 
-public class MyArrayListV3 {
+public class ArrayList<E> implements MyList<E>{
     private static final int DEFAULT_CAPASITY=5;
 
     private Object[] elementData;
     private int size=0;
 
-    public MyArrayListV3(){
+    public ArrayList(){
         elementData = new Object[DEFAULT_CAPASITY];
     }
 
-    public MyArrayListV3(int initialCapasity){
+    public ArrayList(int initialCapasity){
         elementData=new Object[initialCapasity];
     }
+    @Override
     public int size(){
         return size;
     }
 
-    public void add(Object ee){
+    @Override
+    public void add(E e){
         if(size==elementData.length){
             grow();
         }
-        elementData[size++]=ee;
+        elementData[size++]=e;
     }
-    public void add(int index, Object ee){
+    @Override
+    public void add(int index, E ee){
         if(size==elementData.length){
             grow();
         }
@@ -33,9 +36,10 @@ public class MyArrayListV3 {
         elementData[index]=ee;
         size++;
     }
-    public Object remove(int index){
-        Object oldElement=elementData[index];
+    public E remove(int index){
+        E oldElement=get(index);
         shiftLeftFrom(index);
+
         size--;
         elementData[size]=null;
         return oldElement;
@@ -54,15 +58,19 @@ public class MyArrayListV3 {
         int newCapasity=size*2;
         elementData=Arrays.copyOf(elementData,newCapasity);
     }
-    public Object get(int index){
-        return elementData[index];
+    @Override
+    @SuppressWarnings("unchecked")
+    public E get(int index){
+        return (E) elementData[index];
     }
-    public Object set(int index,Object element){
-        Object oldElement=elementData[index];
+    @Override
+    public E set(int index,E element){
+        E oldElement=get(index);
         elementData[index]=element;
         return oldElement;
     }
-    public int indexOf(Object o){
+    @Override
+    public int indexOf(E o){
         for (int i = 0; i < size; i++) {
             if(o.equals(elementData[i])){
                 return i;
